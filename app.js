@@ -27,8 +27,8 @@ function CityChange(event) {
     const selectedCity = cities.find(city => city.name === selectedCityName);
 
     if (selectedCity) {
-        const URL = `https://api.weather.gov/points/${selectedCity.latitude},${selectedCity.longitude}`;
-        fetch(URL)
+        const stationLookupUr = `https://api.weather.gov/points/${selectedCity.latitude},${selectedCity.longitude}`;
+        fetch(stationLookupUr)
             .then(response => response.json())
             .then(stationData => {
                 const weatherUrl = stationData.properties.forecast;
