@@ -7,9 +7,9 @@ const cities = [
     { name: "Houston, TX", latitude: 29.7604, longitude: -95.3698 },
     
 ];
-window.onload = initializeCitySelect;
+window.onload = CitySelect;
 // loop for each of the points in the array and add them to the array as they are added to the array
-function initializeCitySelect() {
+function CitySelect() {
     const citySelect = document.getElementById('cities');
     for (let i = 0; i < cities.length; i++) {
         let option = document.createElement('option');
