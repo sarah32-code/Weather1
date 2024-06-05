@@ -51,24 +51,17 @@ function getWeather(weatherUrl) {
 // Displaying weather information from weather service for selected city
 function displayWeather(forecastArray) {
     const weatherTableBody = document.querySelector('#weatherTable tbody');
-    weatherTableBody.innerHTML = ''; 
+    weatherTableBody.innerHTML = '';
 
     forecastArray.forEach(forecast => {
-        let row = document.createElement('tr');
-
-        row.appendChild(createCell(forecast.name));
-        row.appendChild(createCell(`${forecast.temperature} ${forecast.temperatureUnit}`));
-        row.appendChild(createCell(`${forecast.windDirection} ${forecast.windSpeed}`));
-        row.appendChild(createCell(forecast.shortForecast));
-
-        weatherTableBody.appendChild(row);
+        const row = `
+            <tr>
+                <td>${forecast.name}</td>
+                <td>${forecast.temperature} ${forecast.temperatureUnit}</td>
+                <td>${forecast.windDirection} ${forecast.windSpeed}</td>
+                <td>${forecast.shortForecast}</td>
+            </tr>
+        `;
+        weatherTableBody.innerHTML += row;
     });
-}
-
-
-// Helper function to create a table cell
-function createCell(textContent) {
-    let cell = document.createElement('td');
-    cell.textContent = textContent;
-    return cell;
 }
