@@ -7,9 +7,9 @@ const cities = [
     { name: "Houston, TX", latitude: 29.7604, longitude: -95.3698 },
     
 ];
-
+window.onload = initializeCitySelect;
 // loop for each of the points in the array and add them to the array as they are added to the array
-window.onload = () => {
+function initializeCitySelect() {
     const citySelect = document.getElementById('cities');
     for (let i = 0; i < cities.length; i++) {
         let option = document.createElement('option');
@@ -18,8 +18,9 @@ window.onload = () => {
         citySelect.appendChild(option);
     }
 
-    citySelect.addEventListener('change',CityChange);
-};
+    citySelect.addEventListener('change', CityChange);
+}
+
 
 // Handle city change event when city selection changes from one city to another city
 function CityChange(event) {
